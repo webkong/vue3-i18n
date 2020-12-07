@@ -10,14 +10,14 @@ Issue/PR is welcomed, I'll response as soon as possible.
 
 If you like this pack, can give a star.
 
-## Usage
+## install
 
-### install
 `npm install vue3-i18n --save`
 
-### Quickstart
+## Quickstart
+
 ```javascript
-// i18n.js 
+// i18n.js
 import { createI18n } from "vue3-i18n";
 
 const messages = {
@@ -38,20 +38,18 @@ const i18n = createI18n({
 
 export default i18n;
 ```
-```javascript
 
+```javascript
 // main.js
 import { createApp } from "vue";
 import i18n from "./i18n";
 
 const app = createApp(App);
 
-app
-  .use(i18n)
-  .mount("#app");
+app.use(i18n).mount("#app");
 ```
 
-### Usage
+## Usage
 
 ```html
 <p>{{ $t("test") }}</p>
@@ -79,9 +77,34 @@ export default {
 </script>
 ```
 
-#### TODO
+### API
+
+### i18n.t()
+
+| t()    | Type     | Description     |
+| ------ | -------- | --------------- |
+| params | `string` | translate text  |
+| return | `string` | translated text |
+
+### i18n.setLocale()
+
+| setLocale() | Type     | Description |
+| ----------- | -------- | ----------- |
+| params      | `string` | set locale  |
+| return      | `void`   |             |
+
+### i18n.getLocale()
+
+| getLocale() | Type     | Description    |
+| ----------- | -------- | -------------- |
+| params      | `void`   |                |
+| return      | `string` | current locale |
+
+## TODO
+
 - [ ] directive
 - [ ] Named formatting
 
 ## License
+
 MIT
