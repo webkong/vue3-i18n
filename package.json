@@ -1,0 +1,60 @@
+{
+  "name": "vue3-i18n",
+  "version": "1.0.0",
+  "description": "A i18n plugin for Vue3",
+  "main": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rollup -c",
+    "tsc": "tsc --outDir lib",
+    "tsc:dev": "tsc --outDir lib -w",
+    "dev": "rollup -w -c",
+    "lint": "eslint src/* --fix"
+  },
+  "files": [
+    "lib",
+    "src"
+  ],
+  "keywords": [
+    "vue",
+    "vue3",
+    "i18n"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "webkong",
+    "email": "772930508@qq.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yangss3/vue3-i18n.git"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
+    "@rollup/plugin-babel": "^5.2.2",
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-node-resolve": "^11.0.0",
+    "@rollup/plugin-typescript": "^8.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.9.0",
+    "@typescript-eslint/parser": "^4.9.0",
+    "eslint": "^7.14.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.1.0",
+    "rollup": "^2.34.0",
+    "rollup-plugin-clear": "^2.0.7",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.29.0",
+    "typescript": "^4.1.2",
+    "vue": "^3.0.0"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
