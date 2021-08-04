@@ -9,6 +9,8 @@ export interface I18nConfig {
   messages: Messages;
 }
 
+export interface Params extends Object {}
+
 export interface I18nInstance {
   messages: Messages;
   t: (key: string) => string;
