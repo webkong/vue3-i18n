@@ -1,0 +1,16 @@
+{
+  "en": {
+    "menu": ["Home"],
+    "test": "test",
+    "object": { "a": "1233" },
+    "parse": "welcome to {name}",
+    "parses": { "a": "welcome to {name}" }
+  },
+  "zh": {
+    "menu": ["首页"],
+    "test": "测试",
+    "object": { "a": "1233" },
+    "parse": "welcome to {name}",
+    "parses": { "a": "welcome to {name}" }
+  }
+}
