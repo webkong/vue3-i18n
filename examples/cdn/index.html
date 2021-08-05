@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <p>{{name}}</p>
+      <p>{{ $t("test") }}</p>
+      <!-- array -->
+      <p>{{ $t("menu[0]") }}</p>
+      <!-- object -->
+      <p>{{ $t("object.a") }}</p>
+      <!-- parse -->
+      <p>{{ $t("parse", { name: "wangsw" }) }}</p>
+      <p>{{ $t("parses.a", { name: "wangsw" }) }}</p>
+      <p>{{ $t("parses.b", ["wangsw","webkong"]) }}</p>
+    </div>
+  </body>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script src="https://unpkg.com/vue3-i18n/dist/vue3-i18n.js"></script>
+  <script>
+    const messages = {
+      en: {
+        menu: ["Home"],
+        test: "test",
+        object: { a: "1233" },
+        parse: "welcome to {name}",
+        parses: { a: "welcome to {name}", b: "welcome to {0}, name is {1}" },
+      },
+      zh: {
+        menu: ["首页"],
+        test: "测试",
+        object: { a: "1233" },
+        parse: "welcome to {name}",
+        parses: { a: "welcome to {name}", b: "welcome to {0}, name is {1}" },
+      },
+    };
+    const i18n = Vue3I18n.createI18n({
+      locale: "en",
+      messages: messages,
+    });
+
+    Vue.createApp({})
+      .use(i18n)
+      .mount("#app");
+  </script>
+</html>

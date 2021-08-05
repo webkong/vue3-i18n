@@ -6,8 +6,6 @@ export interface I18nConfig {
     locale?: string;
     messages: Messages;
 }
-export interface Params extends Object {
-}
 export interface I18nInstance {
     messages: Messages;
     t: (key: string) => string;
