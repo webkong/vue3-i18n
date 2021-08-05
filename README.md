@@ -24,10 +24,24 @@ const messages = {
   en: {
     menu: ["Home"],
     test: "test",
+    object: {
+      a: "1233",
+    },
+    parse: "welcome to {name}",
+    parses: {
+      a: "welcome to {name}",
+    },
   },
   zh: {
     menu: ["首页"],
     test: "测试",
+    object: {
+      a: "1233",
+    },
+    parse: "welcome to {name}",
+    parses: {
+      a: "welcome to {name}",
+    },
   },
 };
 
@@ -54,9 +68,12 @@ app.use(i18n).mount("#app");
 ```html
 <p>{{ $t("test") }}</p>
 <!-- array -->
-<p>{{ $t("test[1]") }}</p>
+<p>{{ $t("menu[0]") }}</p>
 <!-- object -->
-<p>{{ $t("test.a") }}</p>
+<p>{{ $t("object.a") }}</p>
+<!-- parse -->
+<p>{{ $t("parse", { name: "wangsw" }) }}</p>
+<p>{{ $t("parses.a", { name: "wangsw" }) }}</p>
 ```
 
 ```javascript
@@ -79,11 +96,12 @@ export default {
 
 ### API
 
-### i18n.t()
+### i18n.t(key,parmas)
 
 | t()    | Type     | Description     |
 | ------ | -------- | --------------- |
-| params | `string` | translate text  |
+| key    | `string` | translate text  |
+| params | `object` | format params   |
 | return | `string` | translated text |
 
 ### i18n.setLocale()
@@ -103,7 +121,7 @@ export default {
 ## TODO
 
 - [ ] directive
-- [ ] Named formatting
+- [x] Named formatting
 
 ## License
 
