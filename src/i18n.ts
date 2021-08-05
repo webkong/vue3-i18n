@@ -3,13 +3,13 @@ import { I18nInstance, Messages, I18nConfig } from "./types";
 
 export const i18nSymbol = Symbol("i18n");
 
-const parseAndReplaceString = (str: string, params: Object<any>): string => {
+const parseAndReplaceString = (str: string, params: any): string => {
   const reg = /{(\w*)}/g;
   let arr;
   let st: string = str;
   while ((arr = reg.exec(str)) !== null) {
     console.log(arr);
-    if (params.hasOwnProperty(arr[1])) {
+    if (Object.prototype.hasOwnProperty.call(params, arr[1])) {
       st = st.replace(arr[0], params[arr[1]]);
     } else {
       throw new Error(`Not Found Params: ${arr[1]}`);
@@ -18,7 +18,7 @@ const parseAndReplaceString = (str: string, params: Object<any>): string => {
   return st;
 };
 
-const recursiveRetrieve = (chain: string[], messages: Messages, params?: Object): string => {
+const recursiveRetrieve = (chain: string[], messages: Messages, params?: any): string => {
   const key = chain[0];
   if (~key.indexOf("[")) {
     // get array item
@@ -54,15 +54,16 @@ const recursiveRetrieve = (chain: string[], messages: Messages, params?: Object)
 export const createI18n = (config: I18nConfig): I18nInstance => {
   const locale = ref(config.locale || "en");
   const messages = config.messages;
-  const t = (key: string, params: Object) => {
+  const t = (key: string, params?: any): string => {
     const pack = messages[locale.value] || messages.en;
     if (typeof key !== "string") {
       console.warn("Warn(i18n):", "keypath must be a type of string");
       return "";
     }
     try {
-      return recursiveRetrieve(key.split("."), pack, { params });
+      return recursiveRetrieve(key.split("."), pack, params);
     } catch (error) {
+      console.log(error);
       console.warn(`Warn(i18n): the keypath '${key}' not found`);
       return "";
     }
