@@ -32,6 +32,7 @@ const plugins = [
     compress: {
       ecma: 2015,
       pure_getters: true,
+      pure_funcs: ["console.log"],
     },
   }),
 ];
