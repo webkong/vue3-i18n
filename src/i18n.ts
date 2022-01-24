@@ -8,7 +8,6 @@ const parseAndReplaceString = (str: string, params: any): string => {
   let arr;
   let st: string = str;
   while ((arr = reg.exec(str)) !== null) {
-    console.log(arr);
     if (Object.prototype.hasOwnProperty.call(params, arr[1])) {
       st = st.replace(arr[0], params[arr[1]]);
     } else {
@@ -63,7 +62,6 @@ export const createI18n = (config: I18nConfig): I18nInstance => {
     try {
       return recursiveRetrieve(key.split("."), pack, params);
     } catch (error) {
-      console.log(error);
       console.warn(`Warn(i18n): the keypath '${key}' not found`);
       return "";
     }
