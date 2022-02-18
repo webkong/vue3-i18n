@@ -8,7 +8,7 @@ export interface I18nConfig {
 }
 export interface I18nInstance {
     messages: Messages;
-    t: (key: string) => string;
+    t: (key: string, params?: any) => string;
     setLocale: (locale: string) => void;
     getLocale: () => string;
     install(app: App): void;
